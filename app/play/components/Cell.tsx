@@ -10,6 +10,7 @@ export default function Cell({
   selected,
   count,
   hintHighlighted,
+  handleMove,
 }: {
   worldHeight: string;
   worldWidth: string;
@@ -18,6 +19,7 @@ export default function Cell({
   selected: number;
   count: number;
   hintHighlighted: number;
+  handleMove: Function;
 }) {
   return (
     <div
@@ -66,9 +68,15 @@ export default function Cell({
         {index}
         <br />
         {count}
-        {selected == index && (
+        {selected == index && count > 0 && (
           <Grid container justifyContent={"center"}>
-            <Button>Accept Move</Button>
+            <Button
+              onClick={() => {
+                handleMove(index);
+              }}
+            >
+              Accept Move
+            </Button>
           </Grid>
         )}
       </Grid>

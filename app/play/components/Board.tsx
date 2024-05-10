@@ -2,30 +2,63 @@
 import React, { useEffect, useRef, useState } from "react";
 import Cell from "./Cell";
 import { FALSE_DICT, INITIAL_BOARD } from "./constants";
+import { getNextIndex, getPrevIndex } from "./utils";
+import { Grid, Typography } from "@mui/material";
+import Moves from "./Moves";
 
 // rules:  https://www.youtube.com/watch?v=M3LjiN7BSRs
 
 function Board() {
-  const getNextIndex = (current_index: number) => {
-    // const boardSeries = [6, 7, 8, 9, 10, 11, 5, 4, 3, 2, 1];
-    if (current_index === 0) {
-      return 6;
-    } else if (current_index === 11) {
-      return 5;
-    } else if (current_index > 5) {
-      return current_index + 1;
-    } else {
-      return current_index - 1;
-    }
-  };
-
   const [hintHighlighted, setHintHighlighted] = useState<any>(FALSE_DICT);
   const [boardState, setBoardState] = useState(INITIAL_BOARD);
-  const [moves, setMoves] = useState([]);
+  const [playerTurn, setPlayerTurn] = useState(1);
+  const [moves, setMoves] = useState<any>([]);
   const worldRef = useRef<any>();
   const [selected, setSelected] = useState(-1);
   const [worldHeight, setWorldHeight] = useState("");
   const [worldWidth, setWorldWidth] = useState("");
+  const handleMove = (index: number) => {
+    let tempboard = boardState;
+    console.log(tempboard);
+    let move = boardState[index];
+    let i: number = getNextIndex(index);
+    while (move > 0) {
+      console.log(i);
+      tempboard[i] = tempboard[i] + 1;
+      i = getNextIndex(i);
+      move--;
+    }
+    tempboard[index] = 0;
+    setMoves((prev: any) => [
+      ...prev,
+      {
+        player: playerTurn,
+        start_index: index,
+        end_index: getPrevIndex(i),
+      },
+    ]);
+    setPlayerTurn((prev) => {
+      if (prev === 1) {
+        return 2;
+      } else {
+        return 1;
+      }
+    });
+    let postcaptured = checkCapture(tempboard);
+    if (checkWin(postcaptured)) {
+      // game state to player win
+    }
+
+    setBoardState(postcaptured);
+  };
+
+  const checkCapture = (board: any) => {
+    return board;
+  };
+
+  const checkWin = (board: any) => {
+    return true;
+  };
 
   useEffect(() => {
     let false_dict: any = {
@@ -57,7 +90,7 @@ function Board() {
   }, [selected]);
 
   useEffect(() => {
-    console.log(hintHighlighted);
+    // console.log(hintHighlighted);
   }, [hintHighlighted]);
 
   const resizeWorld = () => {
@@ -86,28 +119,46 @@ function Board() {
     window.addEventListener("resize", resizeWorld);
   }
   return (
-    <div
-      ref={worldRef}
-      style={{
-        overflow: "hidden",
-        position: "relative",
-        width: "100%",
-        display: "flex",
-        flexWrap: "wrap",
-      }}
-    >
-      {boardState.map((count, index: any) => (
-        <Cell
-          worldHeight={worldHeight}
-          worldWidth={worldWidth}
-          index={index}
-          setSelected={setSelected}
-          selected={selected}
-          count={count}
-          hintHighlighted={hintHighlighted[index]}
-        />
-      ))}
-    </div>
+    <Grid container>
+      <Grid container justifyContent={"end"} pb={3}>
+        <Grid container justifyContent={"end"}>
+          <Typography>Opponent</Typography>
+        </Grid>
+        <Typography variant="h5">10</Typography>
+      </Grid>
+      <div
+        ref={worldRef}
+        style={{
+          overflow: "hidden",
+          position: "relative",
+          width: "100%",
+          display: "flex",
+          flexWrap: "wrap",
+        }}
+      >
+        {boardState.map((count, index: any) => (
+          <Cell
+            worldHeight={worldHeight}
+            worldWidth={worldWidth}
+            index={index}
+            setSelected={setSelected}
+            selected={selected}
+            count={count}
+            hintHighlighted={hintHighlighted[index]}
+            handleMove={handleMove}
+          />
+        ))}
+      </div>
+      <Grid container pt={3}>
+        <Grid container>
+          <Typography>Player</Typography>
+        </Grid>
+        <Typography variant="h5">10</Typography>
+      </Grid>
+      <Grid container pt={3}>
+        {moves.length > 0 && <Moves moves={moves} />}
+      </Grid>
+    </Grid>
   );
 }
 
