@@ -28,8 +28,12 @@ export default function AppSideNav() {
       display={matchesBreakpoint ? "none" : "flex"}
     >
       <Typography>
-        {navOptions.map((menuItem: any) => (
-          <AppSideNavButton menuItem={menuItem} selectedIndex={selectedIndex} />
+        {navOptions.map((menuItem: any, index: number) => (
+          <AppSideNavButton
+            key={index}
+            menuItem={menuItem}
+            selectedIndex={selectedIndex}
+          />
         ))}
       </Typography>
     </Grid>

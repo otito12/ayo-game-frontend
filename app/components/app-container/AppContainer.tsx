@@ -52,7 +52,7 @@ export default function AppContainer({
             flex={1}
             container
             sx={{
-              ml: matchesBreakpoint ? 0 : 24,
+              ml: matchesBreakpoint ? 0 : 11,
             }}
           >
             {children}

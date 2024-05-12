@@ -18,6 +18,7 @@ export const lightTheme = createTheme({
     },
     secondary: {
       main: "#FFD600",
+      contrastText: "rgba(0, 0, 0, 0.87)",
     },
     success: {
       main: "#23b92a",

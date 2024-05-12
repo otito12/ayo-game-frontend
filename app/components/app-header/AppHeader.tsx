@@ -12,24 +12,39 @@ export default function AppHeader() {
       pr={1}
       sx={{
         background: theme.palette.background.paper,
+        height: "60px",
       }}
+      alignContent={"center"}
     >
       <Image
         src={Logo}
         style={{
-          width: "60px",
+          paddingLeft: "2px",
+          width: "65px",
           paddingTop: "5px",
           objectFit: "contain",
         }}
         alt="ass"
       />
-      <Grid container flex={1}></Grid>
-      <Button>
-        <Typography>Sign In</Typography>
-      </Button>
-      <Button variant="contained" color="secondary">
-        <Typography>Register</Typography>
-      </Button>
+
+      <Grid
+        container
+        flex={1}
+        justifyContent={"end"}
+        alignItems={"center"}
+        columnGap={2}
+      >
+        <Button sx={{ textTransform: "none" }}>
+          <Typography>Sign In</Typography>
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          sx={{ textTransform: "none" }}
+        >
+          <Typography color={"secondary.contrastText"}>Register</Typography>
+        </Button>
+      </Grid>
     </Grid>
   );
 }

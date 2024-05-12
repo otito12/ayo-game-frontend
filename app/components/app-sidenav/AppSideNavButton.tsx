@@ -17,14 +17,7 @@ export default function AppSideNavButton({
       key={menuItem.label}
       disableRipple
       sx={{
-        mt: 0.5,
         textTransform: "none",
-        color:
-          selectedIndex?.match(menuItem.link) &&
-          `${theme.palette.primary.contrastText} !important`,
-        ":hover": {
-          background: selectedIndex?.match(menuItem.link) && `#ffffff20`,
-        },
       }}
       onClick={() => router.push(menuItem.link)}
     >
@@ -34,16 +27,29 @@ export default function AppSideNavButton({
           justifyContent={"center"}
           alignContent={"center"}
           sx={{
-            background: theme.palette.secondary.main,
-            height: "30px",
-            width: "30px",
-            borderRadius: "5px",
+            background: selectedIndex?.match(menuItem.link)
+              ? theme.palette.secondary.main
+              : "#5A5A5A",
+            height: "40px",
+            width: "40px",
+            borderRadius: "8px",
             m: 1,
           }}
         >
           <menuItem.icon />
         </Grid>
-        <Typography sx={{ fontSize: 14 }}>{menuItem.label}</Typography>
+        <Grid container justifyContent={"center"}>
+          <Typography
+            sx={{
+              fontSize: 12,
+              color: selectedIndex?.match(menuItem.link)
+                ? theme.palette.primary.contrastText
+                : "#8D8D8D",
+            }}
+          >
+            {menuItem.label}
+          </Typography>
+        </Grid>
       </Grid>
     </Button>
   );

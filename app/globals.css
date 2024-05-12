@@ -8,5 +8,5 @@ body{
 }
 
 .MuiButtonBase-root{
-  text-transform: none;
+  /* text-transform: none; */
 }
