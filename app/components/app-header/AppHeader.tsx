@@ -2,9 +2,11 @@ import { Button, Grid, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import Logo from "@/public/ayo-logo.svg";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function AppHeader() {
   const theme = useTheme();
+  const router = useRouter();
   return (
     <Grid
       container
@@ -16,16 +18,18 @@ export default function AppHeader() {
       }}
       alignContent={"center"}
     >
-      <Image
-        src={Logo}
-        style={{
-          paddingLeft: "2px",
-          width: "65px",
-          paddingTop: "5px",
-          objectFit: "contain",
-        }}
-        alt="ass"
-      />
+      <Button disableRipple sx={{ p: 0 }} onClick={() => router.push("/")}>
+        <Image
+          src={Logo}
+          style={{
+            paddingLeft: "2px",
+            width: "65px",
+            paddingTop: "5px",
+            objectFit: "contain",
+          }}
+          alt="ass"
+        />
+      </Button>
 
       <Grid
         container
