@@ -49,13 +49,6 @@ export default function Cell({
           cursor: "pointer",
         }}
         onClick={() => {
-          // if (index > 5) {
-          //   if (selected == index) {
-          //     setSelected(-1);
-          //   } else {
-          //     setSelected(index);
-          //   }
-          // }
           if (selected == index) {
             setSelected(-1);
           } else {
