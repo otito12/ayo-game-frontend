@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Grid from "@mui/material/Grid";
-import SideNav from "../sidenav/SideNav";
+import SideNav from "../app-sidenav/AppSideNav";
 import { useTheme } from "@mui/material";
+import AppHeader from "../app-header/AppHeader";
 
-export default function RootContainer({
+export default function AppContainer({
   children,
 }: {
   children: React.ReactNode;
@@ -34,6 +35,9 @@ export default function RootContainer({
         background: theme.palette.background.default,
       }}
     >
+      <Grid container sx={{ zIndex: 100 }}>
+        <AppHeader />
+      </Grid>
       <Grid item flex={1} sx={{ height: "100%" }}>
         <Grid
           container

@@ -1,10 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import AuthProvider from "./providers/authprovider";
 import Themer from "./providers/themeprovider";
-import "./globals.css";
 import type { Metadata } from "next";
-import RootContainer from "./components/root-container/RootContainer";
+import AppContainer from "./components/app-container/AppContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +26,7 @@ export default async function RootLayout({
       </head>
       <body>
         <Themer>
-          <RootContainer>{children}</RootContainer>
+          <AppContainer>{children}</AppContainer>
         </Themer>
       </body>
     </html>

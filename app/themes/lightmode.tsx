@@ -3,18 +3,21 @@ import { createTheme } from "@mui/material/styles";
 export const lightTheme = createTheme({
   typography: {
     fontSize: 12,
+    allVariants: {
+      color: "rgba(255,255,255,0.87)",
+    },
   },
   palette: {
     mode: "light",
     background: {
       default: "#302E2B",
-      paper: "#3C3B38",
+      paper: "#262522",
     },
     primary: {
       main: "#262522",
     },
     secondary: {
-      main: "#f50057",
+      main: "#FFD600",
     },
     success: {
       main: "#23b92a",
