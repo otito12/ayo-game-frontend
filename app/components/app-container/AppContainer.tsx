@@ -35,7 +35,7 @@ export default function AppContainer({
         background: theme.palette.background.default,
       }}
     >
-      <Grid container sx={{ zIndex: 100 }}>
+      <Grid container sx={{ zIndex: 100, height: "60px" }}>
         <AppHeader />
       </Grid>
       <Grid item flex={1} sx={{ height: "100%" }}>

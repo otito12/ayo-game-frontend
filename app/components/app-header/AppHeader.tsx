@@ -15,6 +15,7 @@ export default function AppHeader() {
       sx={{
         background: theme.palette.background.paper,
         height: "60px",
+        position: "fixed",
       }}
       alignContent={"center"}
     >
