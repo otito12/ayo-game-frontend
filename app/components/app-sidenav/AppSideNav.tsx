@@ -23,6 +23,7 @@ export default function AppSideNav() {
         position: "fixed",
         background: theme.palette.background.paper,
         p: 1,
+        zIndex: 100,
       }}
       justifyContent={"center"}
       display={matchesBreakpoint ? "none" : "flex"}

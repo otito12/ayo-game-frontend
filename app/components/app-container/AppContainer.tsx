@@ -35,31 +35,19 @@ export default function AppContainer({
         background: theme.palette.background.default,
       }}
     >
-      <Grid container sx={{ zIndex: 100, height: "60px" }}>
-        <AppHeader />
-      </Grid>
-      <Grid item flex={1} sx={{ height: "100%" }}>
+      <AppHeader />
+      <Grid container sx={{ height: "100%", mt: "60px" }}>
+        <SideNav />
         <Grid
+          flex={1}
           container
           sx={{
+            ml: matchesBreakpoint ? 0 : 11,
             zIndex: 0,
-            position: "fixed",
-            overflow: "scroll",
             height: "100%",
           }}
         >
-          <Grid
-            flex={1}
-            container
-            sx={{
-              ml: matchesBreakpoint ? 0 : 11,
-            }}
-          >
-            {children}
-          </Grid>
-        </Grid>
-        <Grid container sx={{ zIndex: 100 }}>
-          <SideNav />
+          {children}
         </Grid>
       </Grid>
     </Grid>

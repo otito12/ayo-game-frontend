@@ -16,6 +16,7 @@ export default function AppHeader() {
         background: theme.palette.background.paper,
         height: "60px",
         position: "fixed",
+        zIndex: 100,
       }}
       alignContent={"center"}
     >
