@@ -32,19 +32,22 @@ export default function AppContainer({
       direction={"column"}
       sx={{
         minHeight: "100vh",
-        background: theme.palette.background.default,
       }}
     >
       <AppHeader />
-      <Grid container sx={{ height: "100%", mt: "60px" }}>
+      <Grid
+        container
+        direction={"column"}
+        flex={1}
+        sx={{ height: "100%", mt: "60px" }}
+      >
         <SideNav />
         <Grid
-          flex={1}
           container
+          flex={1}
           sx={{
             ml: matchesBreakpoint ? 0 : 11,
             zIndex: 0,
-            height: "100%",
           }}
         >
           {children}

@@ -10,7 +10,12 @@ import ComputerIcon from "@mui/icons-material/Computer";
 export default function Home() {
   const theme = useTheme();
   return (
-    <Grid container justifyItems={"center"} p={3}>
+    <Grid
+      container
+      direction={"column"}
+      justifyItems={"center"}
+      alignItems={"center"}
+    >
       <EdgeContainer size={950}>
         <Grid
           container
