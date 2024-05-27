@@ -108,14 +108,10 @@ export default function LoginForm({
           </Grid>
 
           <FormControl variant="outlined">
-            <InputLabel htmlFor="standard-adornment-amount">
-              Username
-            </InputLabel>
             <OutlinedInput
-              id="outlined-adornment-email"
-              label="Username"
               placeholder="username"
               fullWidth
+              color="secondary"
               value={username}
               onChange={(event) => handleUsername(event)}
               startAdornment={
@@ -126,13 +122,10 @@ export default function LoginForm({
             />
           </FormControl>
           <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
             <OutlinedInput
-              id="outlined-adornment-password"
               placeholder="Password"
               fullWidth
+              color="secondary"
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(event) => handlePassword(event)}
@@ -153,7 +146,6 @@ export default function LoginForm({
                   </IconButton>
                 </InputAdornment>
               }
-              label="Password"
             />
           </FormControl>
 

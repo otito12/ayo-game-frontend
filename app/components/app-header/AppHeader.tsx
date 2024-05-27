@@ -95,7 +95,6 @@ export default function AppHeader() {
           style={{
             paddingLeft: "2px",
             width: "60px",
-            paddingTop: "5px",
             objectFit: "contain",
           }}
           alt="ass"
