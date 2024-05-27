@@ -3,6 +3,16 @@ import { createTheme } from "@mui/material/styles";
 export const darkTheme = createTheme({
   typography: {
     fontSize: 12,
+    fontFamily: [
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
     allVariants: {
       color: "rgba(255,255,255,0.87)",
     },
