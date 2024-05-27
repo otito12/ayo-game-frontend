@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-export const lightTheme = createTheme({
+export const darkTheme = createTheme({
   typography: {
     fontSize: 12,
     allVariants: {
@@ -8,7 +8,8 @@ export const lightTheme = createTheme({
     },
   },
   palette: {
-    mode: "light",
+    mode: "dark",
+
     background: {
       default: "#302E2B",
       paper: "#262522",

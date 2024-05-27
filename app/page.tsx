@@ -51,7 +51,7 @@ export default function Home() {
           >
             <Grid container flex={1} rowGap={5} justifyContent={"end"}>
               <Typography variant="h5">
-                <strong>--,---- </strong>
+                <strong> 34 </strong>
                 Games today
               </Typography>
               <Button color="secondary" variant="contained">
@@ -70,7 +70,7 @@ export default function Home() {
             </Grid>
             <Grid container rowGap={5} flex={1}>
               <Typography variant="h5" textAlign={"left"}>
-                <strong>$ --,---- </strong>
+                <strong>$10 </strong>
                 Won today
               </Typography>
               <Button
