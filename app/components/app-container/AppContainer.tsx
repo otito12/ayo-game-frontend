@@ -46,7 +46,7 @@ export default function AppContainer({
           container
           flex={1}
           sx={{
-            ml: matchesBreakpoint ? 0 : 11,
+            pl: matchesBreakpoint ? 0 : 11,
             zIndex: 0,
           }}
         >
