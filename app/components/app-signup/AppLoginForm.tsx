@@ -149,7 +149,7 @@ export default function LoginForm({
             />
           </FormControl>
 
-          {/* <Typography>
+          <Typography>
             New Ayo?{" "}
             <a
               onClick={() => setLogin(false)}
@@ -157,7 +157,7 @@ export default function LoginForm({
             >
               Sign Up
             </a>
-          </Typography> */}
+          </Typography>
 
           <Button
             fullWidth
