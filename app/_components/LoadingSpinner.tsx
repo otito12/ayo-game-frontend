@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import loader from "@/public/loader.svg";
 
-export default function Loading({
+export default function LoadingSpinner({
   loadingText = "Loading...",
   showText = true,
   size = 80,

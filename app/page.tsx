@@ -2,8 +2,8 @@
 import { Button, Grid, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import Logo from "@/public/ayo-logo.svg";
-import EdgeContainer from "./components/EdgeContainer";
-import LandingBoard from "@/public/landing-board.svg";
+import PageContainer from "./_components/PageContainer";
+import LandingBoard from "@/public/board.png";
 import PublicIcon from "@mui/icons-material/Public";
 import ComputerIcon from "@mui/icons-material/Computer";
 
@@ -16,7 +16,7 @@ export default function Home() {
       justifyItems={"center"}
       alignItems={"center"}
     >
-      <EdgeContainer size={950}>
+      <PageContainer size={950}>
         <Grid
           container
           alignContent={"center"}
@@ -103,7 +103,7 @@ export default function Home() {
             />
           </Grid>
         </Grid>
-      </EdgeContainer>
+      </PageContainer>
     </Grid>
   );
 }

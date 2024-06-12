@@ -16,12 +16,12 @@ export const navOptions = [
     link: "/groups",
     roles: ["admin", "user"],
   },
-  {
-    icon: GolfCourseIcon,
-    label: "Tournaments",
-    link: "/tournaments",
-    roles: ["admin", "user"],
-  },
+  // {
+  //   icon: GolfCourseIcon,
+  //   label: "Tournaments",
+  //   link: "/tournaments",
+  //   roles: ["admin", "user"],
+  // },
   {
     icon: LeaderboardIcon,
     label: "Ranking",

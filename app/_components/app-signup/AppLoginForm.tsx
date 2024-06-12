@@ -16,7 +16,7 @@ import { signIn, useSession } from "next-auth/react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Loading from "../Loading";
+import LoadingSpinner from "../LoadingSpinner";
 import Image from "next/image";
 import Logo from "@/public/ayo-logo.svg";
 
@@ -172,7 +172,7 @@ export default function LoginForm({
             onClick={() => handleSignin()}
           >
             {disableSubmitButton ? (
-              <Loading showText={false} size={30} />
+              <LoadingSpinner showText={false} size={30} />
             ) : (
               <Typography fontSize={"20"} color={"primary"}>
                 Login
