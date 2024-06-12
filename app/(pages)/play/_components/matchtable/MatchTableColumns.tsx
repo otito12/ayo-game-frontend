@@ -1,23 +1,43 @@
 import React from "react";
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import { Grid, Typography } from "@mui/material";
+import Image from "next/image";
+import Logo from "@/public/usericon.png";
 import dayjs from "dayjs";
 
 export default [
   {
-    field: "first_name",
-    headerName: "Name",
+    field: "oponent",
+    headerName: "Oponent",
     disableColumnMenu: true,
     sortable: false,
     flex: 1,
     minWidth: 150,
     renderCell: (params: GridRenderCellParams<any>) => (
-      <>{params.row.first_name + " " + params.row.last_name}</>
+      <Grid
+        container
+        alignItems={"center"}
+        justifyContent={"left"}
+        columnGap={1}
+        height={"100%"}
+      >
+        <Image
+          src={Logo}
+          style={{
+            width: "20px",
+            height: "20px",
+            objectFit: "contain",
+          }}
+          alt="user_icon"
+        />
+        <Typography>User Name</Typography>
+      </Grid>
     ),
   },
 
   {
-    field: "instagram_handle",
-    headerName: "Handle",
+    field: "tournament",
+    headerName: "Tournament",
     sortable: false,
     flex: 1,
     disableColumnMenu: true,
@@ -25,40 +45,48 @@ export default [
   },
 
   {
-    field: "phone",
-    headerName: "Phone",
+    field: "start",
+    headerName: "Start",
     sortable: false,
     flex: 1,
     disableColumnMenu: true,
     minWidth: 140,
-  },
-
-  // {
-  //   field: "email",
-  //   headerName: "Email",
-  //   sortable: false,
-  //   flex: 1,
-  //   disableColumnMenu: true,
-  //   minWidth: 140,
-  // },
-  {
-    field: "intake_method",
-    headerName: "Intake",
-    sortable: false,
-    flex: 1,
-    disableColumnMenu: true,
-    minWidth: 140,
-  },
-
-  {
-    field: "subscribed",
-    headerName: "Sign Up Date",
-    sortable: false,
-    flex: 1,
-    disableColumnMenu: true,
-    minWidth: 140,
-    renderCell: (params: GridRenderCellParams<any>) => (
-      <>{dayjs(params.row.signup_date).format("MMM D, YYYY H:mm a")}</>
-    ),
+    valueFormatter: (params: GridRenderCellParams<any>) =>
+      dayjs(params.value).format("dddd, MMM D • hh:mm A"),
   },
 ] as GridColDef[];
+
+export const matchRows = [
+  {
+    players: [
+      { id: "0", firtname: "John", lastname: "Smith" },
+      { id: "1", firtname: "Terry", lastname: "Jones" },
+    ],
+    start: dayjs().toDate(),
+    tournament: "First Ayo Tournament",
+  },
+  {
+    players: [
+      { id: "0", firtname: "John", lastname: "Smith" },
+      { id: "1", firtname: "Terry", lastname: "Jones" },
+    ],
+    start: dayjs().toDate(),
+    tournament: "First Ayo Tournament",
+  },
+  {
+    players: [
+      { id: "0", firtname: "John", lastname: "Smith" },
+      { id: "1", firtname: "Terry", lastname: "Jones" },
+    ],
+    start: dayjs().toDate(),
+    tournament: "First Ayo Tournament",
+  },
+  {
+    players: [
+      { id: "0", firtname: "John", lastname: "Smith" },
+      { id: "1", firtname: "Terry", lastname: "Jones" },
+    ],
+    start: dayjs().toDate(),
+    tournament: "First Ayo Tournament",
+  },
+];

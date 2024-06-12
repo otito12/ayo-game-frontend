@@ -5,8 +5,9 @@ import { DataGrid, GridToolbarContainer } from "@mui/x-data-grid";
 import React from "react";
 import { useState } from "react";
 import LoadingSpinner from "@/app/_components/LoadingSpinner";
-import matchTableColumns from "./MatchTableColumns";
+import matchTableColumns, { matchRows } from "./MatchTableColumns";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import dayjs from "dayjs";
 
 export default function MatchTable({
   maxHeight,
@@ -17,7 +18,7 @@ export default function MatchTable({
 }) {
   const theme = useTheme();
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Match[]>(matchRows);
   const [isLoading, setLoading] = useState(false);
 
   const CustomToolbar = () => {
@@ -46,7 +47,7 @@ export default function MatchTable({
       className="match-table-container"
       sx={{
         maxHeight: `${maxHeight ? maxHeight : "850px"}`,
-        minHeight: "300px",
+        minHeight: "250px",
         maxWidth: `${maxWidth ? maxWidth : "none"}`,
         ".MuiDataGrid-footerContainer": {
           justifyContent: "left",
@@ -64,27 +65,6 @@ export default function MatchTable({
           columnHeaderHeight={0}
           slots={{
             toolbar: CustomToolbar,
-          }}
-          initialState={{
-            columns: {
-              orderedFields: [
-                "first_name",
-                "last_name",
-                "email_address",
-                "instagram_handle",
-                "phone_number",
-                "intake_method",
-              ],
-              columnVisibilityModel: {
-                id: false,
-                signup_date: false,
-                recommender_first_name: false,
-                recommender_last_name: false,
-                sign_up_promo_code: false,
-                date_of_birth: false,
-                intake: false,
-              },
-            },
           }}
           className="match-table"
           sx={{
@@ -115,9 +95,14 @@ export default function MatchTable({
               borderBottom: "none",
               backgroundColor: `#3C3B38 !important`,
             },
+            "& .MuiDataGrid-row": {
+              ":nth-child(odd)": {
+                backgroundColor: "#2A2926",
+              },
+            },
             "& .MuiDataGrid-row:hover": {
               cursor: "pointer !important",
-              backgroundColor: "#F6F8FA80",
+              backgroundColor: "#F6F8FA10",
               borderRadius: "2px",
             },
           }}
